@@ -105,6 +105,7 @@ export const updateTipoPago = async (req, res) => {
       );
     } else {
       console.log("TipoPago actualizado en la BD");
+
       //consultar la TipoPago recientemente actualizado
       const [TipoPagoReciente] = await poolDB.query(
         consultasTipoPago.getTipoPagoID,
