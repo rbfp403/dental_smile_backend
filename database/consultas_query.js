@@ -38,7 +38,7 @@ export const consultasConsultas = {
     "SELECT concat_ws(' - ', cie.`codigoCIE`, cie.`nombre_enfermedad`, diag.`tipo_diag`, diag.`desc_diag`) as 'Diagnosticos' FROM `diagnostico_tbl` as diag LEFT JOIN `enfermedades_cie10` as cie ON diag.`codigoCIE` = cie.`codigoCIE` WHERE diag.`id_consulta` = ?;",
 
   getTratamientos:
-    "SELECT  tra.`id_tratam`,  tra.`id_tipoTratam`, tipo_tratam.`tipo_tipoTratam`, tipo_tratam.`tratam_tipoTratam` as 'tratamiento', tra.`codigoCIE`, cie.`nombre_enfermedad`, DATE_FORMAT(FROM_UNIXTIME(unix_timestamp(tra.`fecha_tratam`)),'%Y/%m/%d %H:%i:%s') as 'fecha_tratamiento' FROM  `tratamiento_tbl` as tra LEFT JOIN `enfermedades_cie10` as cie ON tra.`codigoCIE` = cie.`codigoCIE` LEFT JOIN `tipotratamiento_tbl` as tipo_tratam ON tra.`id_tipoTratam` = tipo_tratam.`id_tipoTratam` WHERE tra.`id_consulta`= ? ;",
+    "SELECT  tra.`id_tratam`,  tra.`id_tipoTratam`, tipo_tratam.`tipo_tipoTratam`, tipo_tratam.`tratam_tipoTratam` as 'tratamiento', tra.`codigoCIE`, cie.`nombre_enfermedad`, DATE_FORMAT(FROM_UNIXTIME(unix_timestamp(tra.`fecha_tratam`)),'%Y/%m/%d %H:%i:%s') as 'fecha_tratamiento' FROM  `tratamiento_tbl` as tra LEFT JOIN `enfermedades_cie10` as cie ON tra.`codigoCIE` = cie.`codigoCIE` LEFT JOIN `tipoTratamiento_tbl` as tipo_tratam ON tra.`id_tipoTratam` = tipo_tratam.`id_tipoTratam` WHERE tra.`id_consulta`= ? ;",
 
   getPlanesDiag:
     "SELECT concat_ws(' - ', planD.`exam_planDiag`, planD.`desc_planDiag`) as 'PlanesDiag' FROM `planDiagnostico_tbl` as planD WHERE planD.`tipo_planDiag`= 'Diagnóstico' AND planD.`id_consulta` = ? ;",
