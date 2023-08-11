@@ -137,3 +137,6 @@ export const deleteTipoTratam = async (req, res) => {
     handleHttpError(res, error, "deleteTiposTratam");
   }
 };
+
+//
+//
