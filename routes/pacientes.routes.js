@@ -2,7 +2,6 @@ import { Router } from "express";
 
 import {
   getAllPacientes,
-  getNombreCedula,
   getPacienteID,
   createPaciente,
   deletePaciente,
@@ -16,21 +15,21 @@ import {
   deleteAntecedente,
 } from "../controllers/antecedentes.controllers.js";
 
-//router
+// Creación del enrutador
 const router = Router();
 
-//pacientes
+// Rutas relacionadas con pacientes
 router.get("/getPacientes", getAllPacientes);
 router.get("/paciente/:id_paciente", getPacienteID);
-router.get("/buscarPaciente/:nombreCedula", getNombreCedula);
 router.post("/createPaciente", createPaciente);
 router.put("/updatePaciente/:id_paciente", updatePaciente);
 router.delete("/deletePaciente/:id_paciente", deletePaciente);
 
-//antecedentes
+// Rutas relacionadas con antecedentes
 router.get("/paciente/:id_paciente/getAntecedentes/:tipo", getAntecedentes);
 router.post("/paciente/:id_paciente/createAntecedente", createAntecedente);
 router.put("/paciente/updateAntecedente/:id_antecedente", updateAntecedente);
 router.delete("/paciente/deleteAntecedente/:id_antecedente", deleteAntecedente);
-//
+
+// Exportar el enrutador
 export default router;

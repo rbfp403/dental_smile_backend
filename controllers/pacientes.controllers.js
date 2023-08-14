@@ -53,36 +53,6 @@ export const getPacienteID = async (req, res) => {
   }
 };
 
-//buscar pacientes y solo mostrar id, nombre, cedula
-export const getNombreCedula = async (req, res) => {
-  try {
-    //ejecutar query
-    const [result] = await poolDB.query(consultasPacientes.getPacientesNC, [
-      req.params.nombreCedula,
-      req.params.nombreCedula,
-      req.params.nombreCedula,
-      req.params.nombreCedula,
-    ]);
-    //verificar si se trajeron los datos
-    if (result.length === 0) {
-      handleHttpError(
-        res,
-        new Error(
-          "No se encontraron coincidencias en la busqueda de pacientes"
-        ),
-        "getNombreCedula",
-        404
-      );
-    } else {
-      //devolver datos
-      res.json(result);
-      console.log("Se encontraron coincidencias en la busqueda de pacientes");
-    }
-  } catch (error) {
-    handleHttpError(res, error, "getNombreCedula");
-  }
-};
-
 //registrar paciente
 export const createPaciente = async (req, res) => {
   try {

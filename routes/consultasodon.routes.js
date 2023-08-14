@@ -106,11 +106,7 @@ router.put("/consultas/:id_consulta/update", updateConsulta);
 router.delete("/consultas/:id_consulta/delete", deleteConsulta);
 
 //signos vitales
-router.post(
-  // "/pacientes/:id_paciente/consultas/:id_consulta/signos_vitales/create",
-  "/consulta/:id_consulta/signos_vitales/create",
-  createSignoVital
-);
+router.post("/consulta/:id_consulta/signos_vitales/create", createSignoVital);
 router.put(
   "/consulta/:id_consulta/signos_vitales/update/:id_signo",
   updateSignoVital
